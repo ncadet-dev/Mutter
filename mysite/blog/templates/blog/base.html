@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- BOOTSRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+    <!-- MEDIUM STYLE EDITOR -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+
+    <!-- CUSTOM CSS -->
+    <link rel="stylesheet" href="{% static 'css/blog.css' %}'">
+
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Russo+One&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-default techfont custom-navbar">
+        <div class="container">
+            <ul>
+                <li><a class="nav-brand bigbrand" href="{% url 'post_list' %}">My blog</a></li>
+                <li><a class="nav-link" href="{% url 'about' %}">About</a></li>
+                <li><a class="nav-link" href="https://www.github.com">GitHub</a></li>
+                <li><a class="nav-link" href="https://www.linkedin.com">linkedIn</a></li>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'post_new' %}">New Post</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'psot_draft_list' %}">Draft</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                    <li>
+                        <a href="">Welcome: {{user.username}}</a>
+                    </li>
+                    {% else %}
+                    <li><a class="nav navbar-right" href="{% url 'login' %}"><span class="glyphicon glyphicon-user"></span></a></li>
+
+                    {% endif %}
+
+                </ul>
+            </ul>
+
+        </div>
+    </nav>
+
+    <!-- CONTENT BLOCK -->
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog_posts">
+                    {% block body_block %}
+
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+</body>
+</html>
