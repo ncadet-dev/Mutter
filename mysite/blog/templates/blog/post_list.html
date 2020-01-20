@@ -1,4 +1,18 @@
 {% extends "blog/base.html" %}
 {% block content %}
+    <div class="centerstage">
+        <!-- post_list is the default name for the list generated with the list view (name + _list) -->
+        {% for post in post_list %}
+        <div class="post">
+            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            <div class="date">
 
+                <!-- keep everything stuck together when using filters  -->
+                <p>Published on: {{ post.published|date:"D M Y" }}</p>
+
+            </div>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count </a>
+        </div>
+        {% endfor %}
+    </div>
 {% endblock %}
