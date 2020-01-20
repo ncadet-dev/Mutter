@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-{% block content %}
+{% block body_block %}
     <form action="" method="POST">
         {% csrf_token %}
         <p>Are you sure you want to delete {{ object }}?</p>

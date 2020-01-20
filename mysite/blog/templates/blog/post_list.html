@@ -1,5 +1,5 @@
 {% extends "blog/base.html" %}
-{% block content %}
+{% block body_block %}
     <div class="centerstage">
         <!-- post_list is the default name for the list generated with the list view (name + _list) -->
         {% for post in post_list %}
@@ -13,6 +13,8 @@
             </div>
             <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count </a>
         </div>
+        {% empty %}
+        <h1>No post yet!</h1>
         {% endfor %}
     </div>
 {% endblock %}

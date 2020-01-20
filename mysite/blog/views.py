@@ -35,7 +35,7 @@ class CreatePostView(LoginRequiredMixin, CreateView):
     """
     # These two next fields are required when dealing with LoginRequiredMixin as a class arg
     login_url = '/login/'
-    redirect_field_name = 'blog/post_detail.html'
+    redirect_field_name = 'blog:post_detail'
     form_class = PostForm
     model = Post
 
