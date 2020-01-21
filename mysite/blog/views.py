@@ -69,7 +69,7 @@ class DraftListView(LoginRequiredMixin, ListView):
 @login_required
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    post.published_date
+    post.publish()
     return redirect('post_detail', pk=pk)
 
 
