@@ -11,7 +11,7 @@
                 <p>Published on: {{ post.published|date:"D M Y" }}</p>
 
             </div>
-            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approve_comments.count </a>
+            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count }} </a>
         </div>
         {% empty %}
         <h1>No post yet!</h1>

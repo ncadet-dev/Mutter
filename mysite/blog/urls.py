@@ -2,7 +2,7 @@ from django.urls import path, re_path
 from . import views
 
 #template tagging
-app_name = 'blog'
+##app_name = 'blog'
 
 urlpatterns = [
     path('', views.PostListView.as_view(), name='post_list'),
