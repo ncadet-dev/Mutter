@@ -9,6 +9,7 @@
     <p>Your username and password did not match! Please try again!</p>
     {% endif %}
 
+    <!-- A random comment -->
     <form action="{% url 'login' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
