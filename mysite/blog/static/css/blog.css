@@ -1,8 +1,10 @@
-a{
-    display: inline-block;
-}
+
 svg{
     color: black;
+}
+
+.btn-comment{
+    display: block;
 }
 
 .techfont{
