@@ -1,1 +1,1 @@
-A aimple project of social media website
+A simple project of social media website
